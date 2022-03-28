@@ -8,9 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var selectedColor: Color = .red
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            CustomColor(selectredColor: $selectedColor)
+            Spacer()
+            Circle()
+                .frame(width: 350, height: 350)
+                .foregroundColor(selectedColor)
+            Text("Selected color: \(selectedColor.description)")
+                .font(.title2)
+                .foregroundColor(selectedColor)
+                Spacer()
+        }
     }
 }
 
